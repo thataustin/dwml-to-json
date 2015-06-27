@@ -20,5 +20,13 @@
   "bugs": {
     "url": "https://github.com/thataustin/dwml-parser/issues"
   },
-  "homepage": "https://github.com/thataustin/dwml-parser#readme"
+  "homepage": "https://github.com/thataustin/dwml-parser#readme",
+  "dependencies": {
+    "expect.js": "^0.3.1",
+    "underscore": "^1.8.3",
+    "xml-parser": "^1.2.1"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5"
+  }
 }
