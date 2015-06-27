@@ -12,6 +12,7 @@ var dwmlParser = require('../dwml-parser');
 
 describe('DWML Parser', function () {
   var parsedData;
+  var expectedTimeLayoutKeys = ['k-p12h-n7-3', 'k-p12h-n7-2', 'k-p12h-n7-1'];
 
   beforeEach(function () {
     var testXmlFile = path.resolve(__dirname, './dwml.xml');
@@ -40,10 +41,10 @@ describe('DWML Parser', function () {
       // Make sure we're testing a real iterable
       expect(_.values(parsedData)).to.have.length(2);
 
-      _.each(parsedData, function (data, locationKey) {
+      _.each(parsedData, function (data) {
         expect(data.precipitation.type).to.be('liquid');
         expect(data.precipitation.units).to.be('inches');
-        expect(data.precipitation['time-layout']).to.not.be.empty();
+        expect(expectedTimeLayoutKeys).to.contain(data['probability-of-precipitation']['time-layout']);
 
         _.each(data.precipitation.values, function (value) {
           expect(value['start-time']).to.not.be.empty();
@@ -57,10 +58,10 @@ describe('DWML Parser', function () {
       // Make sure we're testing a real iterable
       expect(_.values(parsedData)).to.have.length(2);
 
-      _.each(parsedData, function (data, locationKey) {
+      _.each(parsedData, function (data) {
         expect(data['probability-of-precipitation'].type).to.be('12 hour');
         expect(data['probability-of-precipitation'].units).to.be('percent');
-        expect(data['probability-of-precipitation']['time-layout']).to.not.be.empty();
+        expect(expectedTimeLayoutKeys).to.contain(data['probability-of-precipitation']['time-layout']);
 
         _.each(data['probability-of-precipitation'].values, function (value) {
           expect(value['start-time']).to.not.be.empty();
