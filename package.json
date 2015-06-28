@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thataustin/dwml-parser.git"
+    "url": "git+https://github.com/thataustin/dwml-to-json.git"
   },
   "keywords": [
     "dwml",
