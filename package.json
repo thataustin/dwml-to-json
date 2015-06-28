@@ -1,10 +1,10 @@
 {
-  "name": "dwml-parser",
+  "name": "dwml-to-json",
   "version": "0.0.1",
   "description": "A simple DWML parser",
   "main": "dwml-parser.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/mocha/bin/mocha ./test/test.js"
   },
   "repository": {
     "type": "git",
