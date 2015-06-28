@@ -1,7 +1,7 @@
 # dwml-to-json
 Pass in a DWML string, get back a JS object.
 
-This is a fairly naive approach to making (DWML)[http://graphical.weather.gov/xml/mdl/XML/Design/MDL_XML_Design.pdf] more approachable in JS.
+This is a fairly naive approach to making [DWML](http://graphical.weather.gov/xml/mdl/XML/Design/MDL_XML_Design.pdf) more approachable in JS.
 
 ### Installation
 
