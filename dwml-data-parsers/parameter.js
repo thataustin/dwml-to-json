@@ -72,9 +72,23 @@ var parameterParser = {
 
     while (i < values.length) {
       var currentValue = values[i];
+
+      currentTimeFrame = timeFrames[timeFrameCounter];
       if (currentValue.name === 'value') {
         currentTimeFrame = timeFrames[timeFrameCounter];
-        results.push(_.extend({}, currentTimeFrame, {value: currentValue.content }));
+        results.push(_.extend({}, currentTimeFrame, {value: currentValue.content }));  
+        timeFrameCounter++;
+      }
+      if (currentValue.name === 'weather-conditions') {
+        currentTimeFrame = timeFrames[timeFrameCounter];
+        var weather_condition = {
+          summary: currentValue.attributes[ 'weather-summary' ],
+          coverage: ( currentValue.children.length > 0 ) ? currentValue.children[ 0 ].attributes.coverage : null,
+          intensity: ( currentValue.children.length > 0 ) ? currentValue.children[ 0 ].attributes.intensity : null,
+          weather_type: ( currentValue.children.length > 0 ) ? currentValue.children[ 0 ].attributes['weather-type'] : null,
+          qualifier: ( currentValue.children.length > 0 ) ? currentValue.children[ 0 ].attributes.qualifier : null,
+        };
+        results.push(_.extend({},currentTimeFrame, {value: weather_condition}));
         timeFrameCounter++;
       }
 
