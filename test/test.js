@@ -71,5 +71,27 @@ describe('DWML Parser', function () {
       });
     });
 
+    it('parses weather', function () {
+      // Make sure we're testing a real iterable
+      expect(_.values(parsedData)).to.have.length(2);
+
+      _.each(parsedData, function (data) {
+        expect(expectedTimeLayoutKeys).to.contain(data['weather']['time-layout']);
+        expect(data['weather'].values).to.have.length(7);
+
+        _.each(data['weather'].values, function (value) {
+          expect(value['start-time']).to.not.be.empty();
+          expect(value['end-time']).to.not.be.empty();
+          expect(value['value']).to.not.be.empty();
+
+          expect(value['value']).to.have.property('summary');
+          expect(value['value']).to.have.property('coverage');
+          expect(value['value']).to.have.property('intensity');
+          expect(value['value']).to.have.property('weather_type');
+          expect(value['value']).to.have.property('qualifier');
+        })
+      });
+    });
+
   });
 });

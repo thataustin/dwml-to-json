@@ -146,6 +146,26 @@
         <value>15</value>
         <value>51</value>
       </probability-of-precipitation>
+      <weather time-layout="k-p12h-n7-1">
+        <name>Weather Type, Coverage, and Intensity</name>
+        <weather-conditions weather-summary="Mostly Sunny"/>
+        <weather-conditions weather-summary="Mostly Sunny"/>
+        <weather-conditions weather-summary="Chance Rain Showers">
+          <value coverage="chance" intensity="light" weather-type="rain showers" qualifier="none"/>
+        </weather-conditions>
+        <weather-conditions weather-summary="Chance Rain Showers">
+          <value coverage="chance" intensity="light" weather-type="rain showers" qualifier="none"/>
+        </weather-conditions>
+        <weather-conditions weather-summary="Chance Rain Showers">
+          <value coverage="chance" intensity="light" weather-type="rain showers" qualifier="none"/>
+        </weather-conditions>
+        <weather-conditions weather-summary="Chance Rain Showers">
+          <value coverage="chance" intensity="light" weather-type="rain showers" qualifier="none"/>
+        </weather-conditions>
+        <weather-conditions weather-summary="Slight Chance Rain Showers">
+          <value coverage="slight chance" intensity="light" weather-type="rain showers" qualifier="none"/>
+        </weather-conditions>
+      </weather>
     </parameters>
     <parameters applicable-location="point2">
       <precipitation type="liquid" units="inches" time-layout="k-p6h-n13-4">
@@ -174,6 +194,26 @@
         <value>0</value>
         <value>0</value>
       </probability-of-precipitation>
+      <weather time-layout="k-p12h-n7-3">
+        <name>Weather Type, Coverage, and Intensity</name>
+        <weather-conditions weather-summary="Mostly Sunny"/>
+        <weather-conditions weather-summary="Mostly Sunny"/>
+        <weather-conditions weather-summary="Chance Rain Showers">
+          <value coverage="chance" intensity="light" weather-type="rain showers" qualifier="none"/>
+        </weather-conditions>
+        <weather-conditions weather-summary="Chance Rain Showers">
+          <value coverage="chance" intensity="light" weather-type="rain showers" qualifier="none"/>
+        </weather-conditions>
+        <weather-conditions weather-summary="Chance Rain Showers">
+          <value coverage="chance" intensity="light" weather-type="rain showers" qualifier="none"/>
+        </weather-conditions>
+        <weather-conditions weather-summary="Chance Rain Showers">
+          <value coverage="chance" intensity="light" weather-type="rain showers" qualifier="none"/>
+        </weather-conditions>
+        <weather-conditions weather-summary="Slight Chance Rain Showers">
+          <value coverage="slight chance" intensity="light" weather-type="rain showers" qualifier="none"/>
+        </weather-conditions>
+      </weather>
     </parameters>
   </data>
 </dwml>
