@@ -81,13 +81,16 @@ var parameterParser = {
       }
       if (currentValue.name === 'weather-conditions') {
         currentTimeFrame = timeFrames[timeFrameCounter];
+        var hasChildren = currentValue.children && currentValue.children.length > 0;
+
         var weather_condition = {
           summary: currentValue.attributes[ 'weather-summary' ],
-          coverage: ( currentValue.children.length > 0 ) ? currentValue.children[ 0 ].attributes.coverage : null,
-          intensity: ( currentValue.children.length > 0 ) ? currentValue.children[ 0 ].attributes.intensity : null,
-          weather_type: ( currentValue.children.length > 0 ) ? currentValue.children[ 0 ].attributes['weather-type'] : null,
-          qualifier: ( currentValue.children.length > 0 ) ? currentValue.children[ 0 ].attributes.qualifier : null,
+          coverage: ( hasChildren ) ? currentValue.children[ 0 ].attributes.coverage : null,
+          intensity: ( hasChildren ) ? currentValue.children[ 0 ].attributes.intensity : null,
+          weather_type: ( hasChildren ) ? currentValue.children[ 0 ].attributes['weather-type'] : null,
+          qualifier: ( hasChildren ) ? currentValue.children[ 0 ].attributes.qualifier : null,
         };
+
         results.push(_.extend({},currentTimeFrame, {value: weather_condition}));
         timeFrameCounter++;
       }
