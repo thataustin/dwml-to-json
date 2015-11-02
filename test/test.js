@@ -93,5 +93,37 @@ describe('DWML Parser', function () {
       });
     });
 
+    it('parses temperature-maximum', function () {
+      // Make sure we're testing a real iterable
+      expect(_.values(parsedData)).to.have.length(2);
+
+      _.each(parsedData, function (data) {
+        expect(expectedTimeLayoutKeys).to.contain(data['temperature-maximum']['time-layout']);
+        expect(data['temperature-maximum'].values).to.have.length(7);
+
+        _.each(data['temperature-maximum'].values, function (value) {
+          expect(value['start-time']).to.not.be.empty();
+          expect(value['end-time']).to.not.be.empty();
+          expect(value['value']).to.not.be.empty();
+        })
+      });
+    });
+
+    it('parses temperature-minimum', function () {
+      // Make sure we're testing a real iterable
+      expect(_.values(parsedData)).to.have.length(2);
+
+      _.each(parsedData, function (data) {
+        expect(expectedTimeLayoutKeys).to.contain(data['temperature-minimum']['time-layout']);
+        expect(data['temperature-minimum'].values).to.have.length(7);
+
+        _.each(data['temperature-minimum'].values, function (value) {
+          expect(value['start-time']).to.not.be.empty();
+          expect(value['end-time']).to.not.be.empty();
+          expect(value['value']).to.not.be.empty();
+        })
+      });
+    });
+
   });
 });

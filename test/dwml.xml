@@ -146,6 +146,26 @@
         <value>15</value>
         <value>51</value>
       </probability-of-precipitation>
+      <temperature type="maximum" units="Fahrenheit" time-layout="k-p12h-n7-1">
+        <name>Daily Maximum Temperature</name>
+        <value>73</value>
+        <value>69</value>
+        <value>69</value>
+        <value>73</value>
+        <value>75</value>
+        <value>75</value>
+        <value>79</value>
+      </temperature>
+      <temperature type="minimum" units="Fahrenheit" time-layout="k-p12h-n7-1">
+        <name>Daily Minimum Temperature</name>
+        <value>56</value>
+        <value>54</value>
+        <value>54</value>
+        <value>56</value>
+        <value>57</value>
+        <value>57</value>
+        <value>58</value>
+      </temperature>
       <weather time-layout="k-p12h-n7-1">
         <name>Weather Type, Coverage, and Intensity</name>
         <weather-conditions weather-summary="Mostly Sunny"/>
@@ -194,6 +214,26 @@
         <value>0</value>
         <value>0</value>
       </probability-of-precipitation>
+      <temperature type="maximum" units="Fahrenheit" time-layout="k-p12h-n7-1">
+        <name>Daily Maximum Temperature</name>
+        <value>73</value>
+        <value>69</value>
+        <value>69</value>
+        <value>73</value>
+        <value>75</value>
+        <value>75</value>
+        <value>79</value>
+      </temperature>
+      <temperature type="minimum" units="Fahrenheit" time-layout="k-p12h-n7-1">
+        <name>Daily Minimum Temperature</name>
+        <value>56</value>
+        <value>54</value>
+        <value>54</value>
+        <value>56</value>
+        <value>57</value>
+        <value>57</value>
+        <value>58</value>
+      </temperature>
       <weather time-layout="k-p12h-n7-3">
         <name>Weather Type, Coverage, and Intensity</name>
         <weather-conditions weather-summary="Mostly Sunny"/>
