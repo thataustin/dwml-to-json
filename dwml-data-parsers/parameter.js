@@ -27,6 +27,8 @@ var parameterParser = {
     return _.reduce(parameters, function (memo, dataSet) {
 
       var key = dataSet.name;
+      // TODO: This is a hack that fixes overlapping keys for the temperature parameter, need to figure out how to implement for general case
+      if( key === 'temperature' && dataSet.attributes && dataSet.attributes.type ) key = key + '-' + dataSet.attributes.type;
       memo[key] = memo[key] || {};
 
 
