@@ -24,11 +24,26 @@ var parameterParser = {
   },
 
   _parseParameters: function (parameters, timeLayouts) {
+
     return _.reduce(parameters, function (memo, dataSet) {
 
       var key = dataSet.name;
       memo[key] = memo[key] || {};
 
+      // Extend destination begins as the entry for 'key'
+      var destination = memo[key];
+
+      // Check to see if there's a 'type' attribute.
+      var type = dataSet.attributes['type'];
+
+      // If there's a 'type' attribute, there could be more than 1 dataSet with the same name:
+      // E.g. 'temperature' dataSets could be present for both 'maximum' and 'minimum' types.
+      if (type) {
+        // Create an empty nested object for the dataSet's type
+        memo[key][type] = memo[key][type] || {};
+        // Set the destination for the _.extend() call to be this nested object.
+        destination = memo[key][type];
+      }
 
       var layoutKey = dataSet.attributes['time-layout'];
       var timeFrames = timeLayouts[layoutKey];
@@ -38,7 +53,7 @@ var parameterParser = {
        * Mixin the attributes and the values that we've created to make this a much more consumable data structure,
        * while preserving most of the dwml language baked into the DWML xml tags
        */
-      _.extend(memo[key], dataSet.attributes, { values: values });
+      _.extend(destination, dataSet.attributes, { values: values });
 
       return memo;
 
@@ -76,7 +91,7 @@ var parameterParser = {
       currentTimeFrame = timeFrames[timeFrameCounter];
       if (currentValue.name === 'value') {
         currentTimeFrame = timeFrames[timeFrameCounter];
-        results.push(_.extend({}, currentTimeFrame, {value: currentValue.content }));  
+        results.push(_.extend({}, currentTimeFrame, {value: currentValue.content }));
         timeFrameCounter++;
       }
       if (currentValue.name === 'weather-conditions') {
