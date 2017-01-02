@@ -24,20 +24,17 @@ var parameterParser = {
   },
 
   _parseParameters: function (parameters, timeLayouts) {
-
     return _.reduce(parameters, function (memo, dataSet) {
 
       var key = dataSet.name;
       memo[key] = memo[key] || {};
 
-      // Extend destination begins as the entry for 'key'
+      // _.extend() destination begins as memo[key]
       var destination = memo[key];
-
-      // Check to see if there's a 'type' attribute.
-      var type = dataSet.attributes['type'];
 
       // If there's a 'type' attribute, there could be more than 1 dataSet with the same name:
       // E.g. 'temperature' dataSets could be present for both 'maximum' and 'minimum' types.
+      var type = dataSet.attributes['type'];
       if (type) {
         // Create an empty nested object for the dataSet's type
         memo[key][type] = memo[key][type] || {};
